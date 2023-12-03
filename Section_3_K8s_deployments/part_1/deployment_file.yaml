@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: canary-canary
+spec:
+  replicas: 3  
+  selector:
+    matchLabels:
+      app: canary
+      tier: backend
+      version: v2 
+  template:
+    metadata:
+      labels:
+        app: canary
+        tier: backend
+        version: v2  
+    spec:
+      containers:
+        - name: canary
+          image: canary:v2  
+          ports:
+            - containerPort: 80
+
+

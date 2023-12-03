@@ -34,8 +34,6 @@ RUN useradd -m -d /home/jenkins -s /bin/bash jenkins
 USER jenkins
 WORKDIR /home/jenkins
 
-# Optionally, you might want to copy additional files or configurations needed by the agent
 
-# Set entrypoint or command if required
-# ENTRYPOINT ["/bin/bash"]
-
+# Set the entrypoint to keep the container running
+ENTRYPOINT ["tail", "-f", "/dev/null"]
